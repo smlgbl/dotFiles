@@ -53,7 +53,7 @@ shopt -s histappend
 set bell-style none
 
 function _update_ps1() {
-	export PS1="$(~/.bin/powerline-shell/powerline-bash.py $?)"
+	export PS1="$(~/.bin/powerline-shell/powerline-shell.py $?)"
 }
 
 if [ -d ~/code/powerline-shell ]; then
