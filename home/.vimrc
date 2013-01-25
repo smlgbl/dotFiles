@@ -276,3 +276,5 @@ nmap <F4> :AutoComplPopEnable<CR>
 " And get rid of it again, when it sucks.
 imap <F4> <ESC>:AutoComplPopDisable<CR>a
 
+" Enable pathogen
+execute pathogen#infect()
