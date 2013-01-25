@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/samuel/code/validator/node/node_modules'
+let g:netrw_dirhist_2='/home/samuel/code/validator/node/node_modules/w3cjs'
+let g:netrw_dirhist_3='/home/samuel/code/validator/node/node_modules/w3cjs/lib'
+let g:netrw_dirhist_4='/home/samuel/code/validator/node/node_modules/w3cjs'
+let g:netrw_dirhist_5='/home/samuel/code/validator/node/node_modules/w3cjs/lib'
+let g:netrw_dirhist_6='/home/samuel/code/validator/node/node_modules/request'
