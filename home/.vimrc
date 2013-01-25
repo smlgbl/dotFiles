@@ -174,6 +174,11 @@ if has("autocmd")
                 autocmd BufNewFile,BufRead *.plt,*.gp set filetype=gnuplot
                 autocmd BufNewFile *.plt silent 0r ~/.vim/templates/template.plt
         augroup end
+		augroup javascript
+				autocmd!
+				autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
+		augroup end
+
 endif
 
 map <M-Left> :tabprev<CR>
