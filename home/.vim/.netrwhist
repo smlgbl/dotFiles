@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/samuel/code/validator/markupValidatorJS/node_modules/json2html'
 let g:netrw_dirhist_2='/home/samuel/code/validator/markupValidatorJS/node_modules/json2html/lib'
+let g:netrw_dirhist_3='/home/samuel/code/meteor/parties/client'
+let g:netrw_dirhist_4='/home/samuel/code/meteor/parties/server'
+let g:netrw_dirhist_5='/home/samuel/code/meteor/parties'
+let g:netrw_dirhist_6='/home/samuel/.homesick/repos/dotFiles/home/.vim'
+let g:netrw_dirhist_7='/home/samuel/.homesick/repos/dotFiles/home'
+let g:netrw_dirhist_8='/home/samuel/.homesick/repos/dotFiles/home/.vim'
+let g:netrw_dirhist_9='/home/samuel/.homesick/repos/dotFiles/home/.vim/colors'

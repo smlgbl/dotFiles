@@ -14,16 +14,17 @@ if has('gui_running')
         set guioptions-=r
         set guioptions-=R
         set guioptions-=e
-        colorscheme tango2
+        colorscheme molokai
         map <F12> :browse confirm e<CR>
 else
-        colorscheme default
+        colorscheme molokai
 endif
 
 " Enable powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
 "python from powerline.bindings.vim import source_plugin; source_plugin()
-python from powerline.bindings.vim import source_plugin; source_plugin()
-let g:Powerline_symbols = 'fancy'
+""python from powerline.bindings.vim import source_plugin; source_plugin()
+""let g:Powerline_symbols = 'fancy'
 
 " basic options
 set cmdheight=1
@@ -103,7 +104,7 @@ endif
 let html_use_css=1
 
 " setup a funky statusline
-set laststatus=0
+set laststatus=2
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%t\                          " file name
