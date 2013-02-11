@@ -55,28 +55,22 @@ shopt -s histappend
 
 set bell-style none
 
-function _update_ps1() {
-	export PS1="$(~/.bin/powerline-shell/powerline-shell.py $?)"
-}
+#PS1="\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h \[\033[01;34m\]> \[\033[00m\]"
+# Change the window title of X terminals 
+#case $TERM in
+#	xterm*|rxvt*|Eterm)
+#		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+#		;;
+#	screen*)
+#		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+#		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"\\"\033k\033\\" '
+#		PROMPT_COMMAND='echo -ne "\033k\033\\"'
+#		;;
+#esac
 
-if [ -d ~/code/powerline-shell ]; then
-	export PROMPT_COMMAND="_update_ps1"
-else
-	PS1="\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h \[\033[01;34m\]> \[\033[00m\]"
-	# Change the window title of X terminals 
-	case $TERM in
-		xterm*|rxvt*|Eterm)
-			PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-			;;
-		screen*)
-			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"\\"\033k\033\\" '
-			PROMPT_COMMAND='echo -ne "\033k\033\\"'
-			;;
-	esac
-
-fi
 
 #if [ -z "$STY" ]; then
 #    exec screen -RD
 #fi
+
+. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/powerline.sh
