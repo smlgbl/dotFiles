@@ -41,6 +41,7 @@ alias homesick="~/.homeshick"
 
 # additions by samuel
 
+[ -d /home/samuel/.bin ] && PATH=/home/samuel/.bin:$PATH
 [ -d /home/samuel/bin ] && PATH=/home/samuel/bin:$PATH
 
 if [[ ${TERM} == xterm ]] ; then

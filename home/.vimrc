@@ -282,4 +282,4 @@ nmap <F4> :AutoComplPopEnable<CR>
 imap <F4> <ESC>:AutoComplPopDisable<CR>a
 
 " Enable pathogen
-execute pathogen#infect()
+call pathogen#infect()
