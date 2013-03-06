@@ -46,6 +46,7 @@ set undolevels=1000
 set viminfo='1000,f1,:1000,/1000
 set wildmenu
 set autowrite
+set scrolloff=1
 
 " text layout settings
 set noexpandtab

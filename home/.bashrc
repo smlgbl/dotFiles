@@ -22,6 +22,10 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE=cd*:ls:la:l:ll:su
 export HISTFILESIZE=1500
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
 alias ls="ls --color=auto"
 alias la="ls -lah"
 alias ll="ls -lh"
@@ -41,8 +45,8 @@ alias homesick="~/.homeshick"
 
 # additions by samuel
 
-[ -d /home/samuel/.bin ] && PATH=/home/samuel/.bin:$PATH
-[ -d /home/samuel/bin ] && PATH=/home/samuel/bin:$PATH
+[ -d /home/samuel/.bin ] && export PATH=/home/samuel/.bin:$PATH
+[ -d /home/samuel/bin ] && export PATH=/home/samuel/bin:$PATH
 
 if [[ ${TERM} == xterm ]] ; then
    export TERM=xterm-256color
@@ -55,22 +59,23 @@ shopt -s histappend
 
 set bell-style none
 
-#PS1="\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h \[\033[01;34m\]> \[\033[00m\]"
-# Change the window title of X terminals 
-#case $TERM in
-#	xterm*|rxvt*|Eterm)
-#		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-#		;;
-#	screen*)
-#		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-#		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"\\"\033k\033\\" '
-#		PROMPT_COMMAND='echo -ne "\033k\033\\"'
-#		;;
-#esac
-
-
 #if [ -z "$STY" ]; then
 #    exec screen -RD
 #fi
 
-. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/powerline.sh
+if [[ -d /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/ ]] ; then
+	. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/powerline.sh
+else
+	PS1="\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h \[\033[01;34m\]> \[\033[00m\]"
+	# Change the window title of X terminals 
+	case $TERM in
+		xterm*|rxvt*|Eterm)
+			PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+			;;
+		screen*)
+			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"\\"\033k\033\\" '
+			PROMPT_COMMAND='echo -ne "\033k\033\\"'
+			;;
+	esac
+fi

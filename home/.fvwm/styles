@@ -1,0 +1,2 @@
+Style * MouseFocusClickRaises
+Style Fvwm* Sticky, WindowListSkip, BorderWidth 0, HandleWidth 0, StaysOnTop, StaysPut, !Title, !Handles, !Borders
