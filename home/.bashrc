@@ -39,6 +39,9 @@ alias gitc="git commit -a"
 alias gitp="git push"
 alias dum="du -hx --max-depth=1"
 alias homesick="~/.homeshick"
+# MAC manipulators
+alias random_mac='sudo ifconfig en0 ether `openssl rand -hex 6 | sed "s/\(..\)/\1:/g; s/.$//"`'
+alias restore_mac='sudo ifconfig en0 ether YOUR_ORIGINAL_MAC_ADDRESS_GOES_HERE'
 
 # uncomment the following to activate bash-completion:
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
