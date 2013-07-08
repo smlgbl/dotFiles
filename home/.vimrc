@@ -49,17 +49,17 @@ set autowrite
 set scrolloff=1
 
 " text layout settings
-set noexpandtab
+set expandtab
 set wrap
 set whichwrap+=<,>,[,]
 
 " indent settings
 set autoindent
 set backspace=eol,start,indent
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
-set softtabstop=4
-set tabstop=4
+set softtabstop=2
+set tabstop=2
 
 " folding
 set foldmethod=marker
@@ -179,6 +179,8 @@ if has("autocmd")
 		augroup javascript
 				autocmd!
 				autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
+                autocmd FileType javascript setlocal expandtab
+                autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 		augroup end
 
 endif
