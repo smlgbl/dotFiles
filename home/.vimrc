@@ -271,6 +271,9 @@ nmap C :cp<CR>
 
 " Delete the stupid space mapping
 nmap <SPACE> i<SPACE>
+" Smart Home button
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O><Home>
 
 " Have PageUp/PageDown save the cursor position
 nmap <PageUp> m`<C-U>

@@ -16,3 +16,6 @@
 [submodule "powerline"]
 	path = powerline
 	url = git://github.com/Lokaltog/powerline.git
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git
