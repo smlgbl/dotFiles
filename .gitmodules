@@ -16,9 +16,6 @@
 [submodule "powerline"]
 	path = powerline
 	url = git://github.com/Lokaltog/powerline.git
-[submodule "YouCompleteMe"]
-	path = YouCompleteMe
-	url = git://github.com/Valloric/YouCompleteMe.git
 [submodule "syntastic"]
 	path = syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -28,3 +25,6 @@
 [submodule "vim-gitgutter"]
 	path = vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = git://github.com:Valloric/YouCompleteMe.git
