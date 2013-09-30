@@ -83,7 +83,7 @@ set bell-style none
 #	esac
 #fi
 function _update_ps1() {
-  export PS1="$(~/Work/powerline-shell/powerline-shell.py $? 2> /dev/null)"
+  export PS1="$(~/.homesick/repos/dotFiles/powerline-shell/powerline-shell.py $? 2> /dev/null)"
 }
 
 export PROMPT_COMMAND="_update_ps1"
