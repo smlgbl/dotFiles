@@ -33,12 +33,14 @@ alias l="ls -h"
 alias screen="screen -RD"
 alias cal="cal -m"
 alias svndiff="svn diff | less -r"
+alias git="LC_ALL=C git"
 alias gits="git status"
 alias gitd="git diff"
 alias gitc="git commit -a"
 alias gitp="git push"
 alias dum="du -hx --max-depth=1"
 alias homesick="~/.homeshick"
+alias vim="vim -p"
 # MAC manipulators
 alias random_mac='sudo ifconfig en0 ether `openssl rand -hex 6 | sed "s/\(..\)/\1:/g; s/.$//"`'
 alias restore_mac='sudo ifconfig en0 ether YOUR_ORIGINAL_MAC_ADDRESS_GOES_HERE'

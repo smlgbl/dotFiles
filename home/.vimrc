@@ -21,9 +21,10 @@ else
 endif
 
 " Enable powerline
-set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
-"python from powerline.bindings.vim import source_plugin; source_plugin()
-""python from powerline.bindings.vim import source_plugin; source_plugin()
+""set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 ""let g:Powerline_symbols = 'fancy'
 
 " basic options
@@ -204,6 +205,18 @@ autocmd Syntax html,vim inoremap < <lt>><ESC>i| inoremap > <c-r>=ClosePair('>')<
 "inoremap } <c-r>=CloseBracket()<CR>
 inoremap " <c-r>=QuoteDelim('"')<CR>
 " inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+inoremap <CR> <c-r>=NewLineBracket()<CR>
+
+function! NewLineBracket()
+  let line = getline('.')
+  let pos = col('.') - 1
+  if line[pos -1] == '{'
+    return "\<CR>\<ESC>k$a\<CR>"
+  else
+    return "\<CR>"
+  endif
+endf
 
 function ClosePair(char)
   if getline('.')[col('.') - 1] == a:char
