@@ -52,6 +52,7 @@ alias restore_mac='sudo ifconfig en0 ether YOUR_ORIGINAL_MAC_ADDRESS_GOES_HERE'
 
 [ -d /home/samuel/.bin ] && export PATH=/home/samuel/.bin:$PATH
 [ -d /home/samuel/bin ] && export PATH=/home/samuel/bin:$PATH
+[ -d /opt/android-studio/bin ] && export PATH=/opt/android-studio/bin:$PATH
 
 if [[ ${TERM} == xterm ]] ; then
    export TERM=xterm-256color

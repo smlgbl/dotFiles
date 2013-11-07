@@ -21,10 +21,10 @@ else
 endif
 
 " Enable powerline
-""set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
+""python from powerline.vim import setup as powerline_setup
+""python powerline_setup()
+""python del powerline_setup
 ""let g:Powerline_symbols = 'fancy'
 
 " basic options
