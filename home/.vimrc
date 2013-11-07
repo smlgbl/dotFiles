@@ -73,6 +73,10 @@ set isk=@,48-57,_,192-255,-,.,@-@
 set nohlsearch
 set noignorecase
 
+" highlight superfluous characters
+set listchars=tab:>~,nbsp:_,trail:.
+set list
+
 " set a toggle for pasting input
 set pastetoggle=<F10>
 
