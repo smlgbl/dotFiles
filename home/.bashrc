@@ -10,8 +10,8 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]]; then
-	# Shell is non-interactive.  Be done now
-	return
+# Shell is non-interactive.  Be done now
+  return
 fi
 
 # Shell is interactive.  It is okay to produce output at this point,
@@ -20,20 +20,20 @@ fi
 
 export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE=cd*:ls:la:l:ll:su
-export HISTFILESIZE=1500
+export HISTFILESIZE=
+export HISTSIZE=
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-alias ls="ls --color=auto"
-alias la="ls -lah"
-alias ll="ls -lh"
-alias l="ls -h"
+alias ls="ls -G"
+alias la="ls -Glah"
+alias ll="ls -Glh"
+alias l="ls -Gh"
 alias screen="screen -RD"
 alias cal="cal -m"
 alias svndiff="svn diff | less -r"
-alias git="LC_ALL=C git"
 alias gits="git status"
 alias gitd="git diff"
 alias gitc="git commit -a"
@@ -65,29 +65,11 @@ shopt -s histappend
 
 set bell-style none
 
-#if [ -z "$STY" ]; then
-#    exec screen -RD
-#fi
+POWERLINE_PATH=~/Library/Python/2.7/lib/python/site-packages/powerline
+source $POWERLINE_PATH/bindings/bash/powerline.sh
 
-#if [[ -d /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/ ]] ; then
-#	. /usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/bash/powerline.sh
-#else
-#	PS1="\[\033[01;34m\]\w\n\[\033[01;32m\]\u@\h \[\033[01;34m\]> \[\033[00m\]"
-#	# Change the window title of X terminals 
-#	case $TERM in
-#		xterm*|rxvt*|Eterm)
-#			PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-#			;;
-#		screen*)
-#			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-#			PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"\\"\033k\033\\" '
-#			PROMPT_COMMAND='echo -ne "\033k\033\\"'
-#			;;
-#	esac
-#fi
-function _update_ps1() {
-  export PS1="$(~/.homesick/repos/dotFiles/powerline-shell/powerline-shell.py $? 2> /dev/null)"
-}
-
-export PROMPT_COMMAND="_update_ps1"
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
+if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
+export HH_CONFIG=hicolor
 

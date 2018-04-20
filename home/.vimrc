@@ -21,7 +21,7 @@ else
 endif
 
 " Enable powerline
-set rtp+=/usr/local/lib/python2.7/dist-packages/Powerline-beta-py2.7.egg/powerline/bindings/vim
+set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
 ""python from powerline.vim import setup as powerline_setup
 ""python powerline_setup()
 ""python del powerline_setup
@@ -306,4 +306,4 @@ nmap <F4> :AutoComplPopEnable<CR>
 imap <F4> <ESC>:AutoComplPopDisable<CR>a
 
 " Enable pathogen
-call pathogen#infect()
+""call pathogen#infect()
