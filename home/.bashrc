@@ -46,9 +46,6 @@ alias gitp="git push"
 alias dum="du -hx --max-depth=1"
 alias homesick="~/.homeshick"
 alias vim="vim -p"
-# MAC manipulators
-alias random_mac='sudo ifconfig en0 ether `openssl rand -hex 6 | sed "s/\(..\)/\1:/g; s/.$//"`'
-alias restore_mac='sudo ifconfig en0 ether YOUR_ORIGINAL_MAC_ADDRESS_GOES_HERE'
 
 # uncomment the following to activate bash-completion:
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
@@ -57,7 +54,6 @@ alias restore_mac='sudo ifconfig en0 ether YOUR_ORIGINAL_MAC_ADDRESS_GOES_HERE'
 
 [ -d /home/samuel/.bin ] && export PATH=/home/samuel/.bin:$PATH
 [ -d /home/samuel/bin ] && export PATH=/home/samuel/bin:$PATH
-[ -d /opt/android-studio/bin ] && export PATH=/opt/android-studio/bin:$PATH
 [ -d "/usr/local/opt/node@8/bin" ] && export PATH="/usr/local/opt/node@8/bin":$PATH
 
 if [[ ${TERM} == xterm ]] ; then
@@ -71,8 +67,11 @@ shopt -s histappend
 
 set bell-style none
 
-POWERLINE_PATH=~/Library/Python/2.7/lib/python/site-packages/powerline
-source $POWERLINE_PATH/bindings/bash/powerline.sh
+# Powerline
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+source /usr/local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
 
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 # if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
