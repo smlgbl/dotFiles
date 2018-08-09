@@ -27,6 +27,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+export GOPATH=$HOME/Code/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 alias ls="ls -G"
 alias la="ls -Glah"
 alias ll="ls -Glh"
