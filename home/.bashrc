@@ -56,6 +56,7 @@ alias vim="vim -p"
 [ -d /home/samuel/.bin ] && export PATH=/home/samuel/.bin:$PATH
 [ -d /home/samuel/bin ] && export PATH=/home/samuel/bin:$PATH
 [ -d "/usr/local/opt/node@8/bin" ] && export PATH="/usr/local/opt/node@8/bin":$PATH
+[ -d ~/Code/puppet4/hieradata/hosts ] && alias hosts="ls ~/Code/puppet4/hieradata/hosts/ | sed -e's/.yaml$//' | grep "
 
 if [[ ${TERM} == xterm ]] ; then
    export TERM=xterm-256color
