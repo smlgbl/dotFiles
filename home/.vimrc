@@ -259,10 +259,6 @@ map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>:!cscope -b<CR
 " Make word before the cursor uppercase in insert mode with <C-F>
 map! <C-F> <Esc>gUiw`]a
 
-" Insert an IAD-conformant doxygen comment for a new function on press of <F8>
-" in insert mode
-imap <silent> <F8> <CR>//------------------------------------------------------------------------<CR><ESC>a<CR><ESC>a      ag2sim_func()<CR><ESC>a<CR><ESC>a------------------------------------------------------------------------<CR>!		Desc<CR>!<CR>!     \param  int    blabla<CR>!		\param	int   int<CR>!     \param  int *   pointer<CR>!<CR>!     \return int     0 success, -1 error<CR>!<CR>!     \author Gabel, Samuel<CR>!     \date   03.05.07<CR>------------------------------------------------------------------------
-
 ",v brings up my .vimrc
 ",V reloads it -- making all changes active (have to save first)
 

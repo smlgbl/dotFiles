@@ -31,7 +31,7 @@ export GOPATH=$HOME/Code/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+#export JAVA_HOME="$(/usr/libexec/java_home)"
 
 alias ls="ls -G"
 alias la="ls -Glah"
@@ -50,12 +50,25 @@ alias vim="vim -p"
 
 # uncomment the following to activate bash-completion:
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+# use completion by homebrew installed tools
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 # additions by samuel
 
+# add brew autocompletion scripts
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
+fi
+
 [ -d /home/samuel/.bin ] && export PATH=/home/samuel/.bin:$PATH
 [ -d /home/samuel/bin ] && export PATH=/home/samuel/bin:$PATH
-[ -d "/usr/local/opt/node@8/bin" ] && export PATH="/usr/local/opt/node@8/bin":$PATH
 [ -d ~/Code/puppet4/hieradata/hosts ] && alias hosts="ls ~/Code/puppet4/hieradata/hosts/ | sed -e's/.yaml$//' | grep "
 
 if [[ ${TERM} == xterm ]] ; then
@@ -80,6 +93,8 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
 export HH_CONFIG=hicolor
 
+export BAT_THEME=gruvbox-light
+
 _complete_ssh_hosts ()
 {
         COMPREPLY=()
@@ -98,4 +113,7 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+export SDKMAN_DIR="/Users/samuel.gabel/.sdkman"
+[[ -s "/Users/samuel.gabel/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/samuel.gabel/.sdkman/bin/sdkman-init.sh"
 
